@@ -13,7 +13,7 @@ import MongoStore from "connect-mongo";
 dotenv.config({ path: "./.env" });
 const app = express();
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "http://localhost:5173" || "https://superb-dango-c93f19.netlify.app/",
   methods: ["POST", "GET"],
   credentials: true
 }));
