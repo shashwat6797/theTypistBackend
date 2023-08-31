@@ -9,11 +9,13 @@ import testRoute from "./routes/testRoute.js";
 import session, { Store } from "express-session";
 import MongoStore from "connect-mongo";
 
+const origins = ["http://localhost:5173", "https://superb-dango-c93f19.netlify.app/"]
+
 /*configuration*/
 dotenv.config({ path: "./.env" });
 const app = express();
 app.use(cors({
-  origin: "http://localhost:5173" || "https://superb-dango-c93f19.netlify.app/",
+  origin: origins,
   methods: ["POST", "GET"],
   credentials: true
 }));
