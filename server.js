@@ -28,7 +28,8 @@ app.use(session({
   cookie: {
     secure: false,
     maxAge: 1000 * 60 * 60 * 24,
-  }
+  },
+  store: MongoStore.create({ mongoUrl:process.env.MONGO_URL})
 }));
 
 /* ROUTES */
