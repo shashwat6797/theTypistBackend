@@ -28,8 +28,7 @@ app.use(session({
   cookie: {
     secure: false,
     maxAge: 1000 * 60 * 60 * 24,
-  },
-  store: MongoStore.create({ mongoUrl:"mongodb://localhost:27017/theTypist"})
+  }
 }));
 
 /* ROUTES */
