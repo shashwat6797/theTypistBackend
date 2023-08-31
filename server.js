@@ -42,7 +42,7 @@ app.use("/test", testRoute);
 /*Mongoose Setup*/
 const PORT = process.env.PORT;
 const connectionSting =
-  process.env.MONGO_URL || "mongodb+srv://shashlko2002:RypHZHOpnTDir1lG@cluster0.bgyqhxd.mongodb.net/";
+  process.env.MONGO_URL;
 
 mongoose
   .connect(connectionSting, {
