@@ -9,7 +9,7 @@ import testRoute from "./routes/testRoute.js";
 import session, { Store } from "express-session";
 import MongoStore from "connect-mongo";
 
-const origins = ["http://localhost:5173", "https://superb-dango-c93f19.netlify.app/"]
+const origins = ["http://localhost:5173", "https://thetypist.netlify.app/"]
 
 /*configuration*/
 dotenv.config({ path: "./.env" });
