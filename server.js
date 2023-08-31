@@ -29,7 +29,7 @@ app.use(session({
     secure: false,
     maxAge: 1000 * 60 * 60 * 24,
   },
-  store: MongoStore.create({ mongoUrl:"mongodb+srv://shashlko2002:RypHZHOpnTDir1lG@cluster0.bgyqhxd.mongodb.net/"})
+  store: MongoStore.create({ mongoUrl:process.env.MONGO_URL})
 }));
 
 /* ROUTES */
@@ -45,7 +45,7 @@ const connectionSting =
   process.env.MONGO_URL;
 
 mongoose
-  .connect("mongodb+srv://shashlko2002:RypHZHOpnTDir1lG@cluster0.bgyqhxd.mongodb.net/", {
+  .connect(connectionSting, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
