@@ -9,13 +9,13 @@ import testRoute from "./routes/testRoute.js";
 import session, { Store } from "express-session";
 import MongoStore from "connect-mongo";
 
-const origins = ["http://localhost:5173", "https://thetypist.netlify.app/"]
+const origins = ["http://localhost:5173", "https://thetypist.netlify.app"]
 
 /*configuration*/
 dotenv.config({ path: "./.env" });
 const app = express();
 app.use(cors({
-  origin: "https://thetypist.netlify.app/",
+  origin: "https://thetypist.netlify.app",
   methods: ["POST", "GET"],
   credentials: true
 }));
