@@ -45,7 +45,7 @@ const connectionSting =
   process.env.MONGO_URL;
 
 mongoose
-  .connect(connectionSting, {
+  .connect("mongodb+srv://shashlko2002:RypHZHOpnTDir1lG@cluster0.bgyqhxd.mongodb.net/", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
