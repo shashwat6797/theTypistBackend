@@ -15,7 +15,7 @@ const origins = ["http://localhost:5173", "https://thetypist.netlify.app/"]
 dotenv.config({ path: "./.env" });
 const app = express();
 app.use(cors({
-  origin: origins,
+  origin: "https://thetypist.netlify.app/",
   methods: ["POST", "GET"],
   credentials: true
 }));
