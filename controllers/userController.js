@@ -54,6 +54,8 @@ export const registerUser = (req,res) => {
   }else{
     console.log(req.session.uesrname);
   }
+  res.cookie('test', 'test', {secure: true, httpOnly: true, sameSite: "none"});
+  return res.send({mssg: 'api works'});
 }
 
 export const logoutUser = (req, res) => {
