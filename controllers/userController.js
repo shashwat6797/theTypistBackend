@@ -49,12 +49,12 @@ export const userHome = (req, res) => {
 };
 
 export const registerUser = (req,res) => {
-  // if(req.session.id){
-  //   res.send(req.session.username);
-  // }else{
-  //   console.log(req.session.uesrname);
-  // }
-  res.cookie('test', 'test', {secure: true, httpOnly: true, sameSite: "none", maxAge: 1000 * 60 * 60 * 24});
+  if(req.session.id){
+    res.send(req.session.username);
+  }else{
+    console.log(req.session.uesrname);
+  }
+  // res.cookie('test', 'test', {secure: true, httpOnly: true, sameSite: "none", maxAge: 1000 * 60 * 60 * 24});
   return res.send({mssg: 'api works'});
 }
 
