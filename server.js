@@ -23,7 +23,6 @@ app.use(helmet());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false, limit: "10mb" }));
-session.CookieOptions.secure =  true;
 app.use(session({
   secret: "my_secret",
   resave: false,
