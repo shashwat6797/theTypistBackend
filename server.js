@@ -7,7 +7,6 @@ import helmet from "helmet";
 import userRoute from "./routes/userRoute.js";
 import testRoute from "./routes/testRoute.js";
 import cookieParser from "cookie-parser";
-import cookieParser from "cookie-parser";
 import session, { Store, Cookie } from "express-session";
 import MongoStore from "connect-mongo";
 
@@ -25,6 +24,7 @@ app.use(cors({
 app.use(helmet({
   crossOriginResourcePolicy: false
 }));
+app.set('trust proxy', true);
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false, limit: "10mb" }));
