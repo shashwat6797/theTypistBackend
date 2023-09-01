@@ -34,7 +34,7 @@ export const loginUser = async (req, res) => {
       userid = username;
       const isMatch = await bcrypt.compare(password, user.password);
       req.session.username = username;
-      res.cookie('connect_ssid', req.session, {secure: true, httpOnly: true, sameSite: 'none '});
+      res.cookie('connect_ssid', req.session);
       return res.send(isMatch);
     } else {
       res.send("Invalid username");
