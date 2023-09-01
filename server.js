@@ -24,17 +24,17 @@ app.use(helmet());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false, limit: "10mb" }));
-app.use(session({
-  secret: "my_secret",
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    httpOnly: true,
-    maxAge: 1000 * 60 * 60 * 24,
-    sameSite: "none",
-  },
-  store: MongoStore.create({ mongoUrl:process.env.MONGO_URL})
-}));
+// app.use(session({
+//   secret: "my_secret",
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: {
+//     httpOnly: true,
+//     maxAge: 1000 * 60 * 60 * 24,
+//     sameSite: "none",
+//   },
+//   store: MongoStore.create({ mongoUrl:process.env.MONGO_URL})
+// }));
 
 /* ROUTES */
 app.get("/", (req,res)=>{
