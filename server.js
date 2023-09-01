@@ -10,7 +10,7 @@ import session, { Store } from "express-session";
 import MongoStore from "connect-mongo";
 
 const origins = ["http://localhost:5173", "https://thetypist.netlify.app"]
-
+const auto = true;
 /*configuration*/
 dotenv.config({ path: "./.env" });
 const app = express();
@@ -28,7 +28,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: {
-    secure: 'auto',
+    secure: auto,
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24,
     sameSite: "none",
