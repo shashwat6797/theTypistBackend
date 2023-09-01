@@ -8,6 +8,7 @@ import userRoute from "./routes/userRoute.js";
 import testRoute from "./routes/testRoute.js";
 import session, { Store } from "express-session";
 import MongoStore from "connect-mongo";
+import cookieSession from "cookie-session";
 
 const origins = ["http://localhost:5173", "https://thetypist.netlify.app"]
 const auto = true;
@@ -23,18 +24,28 @@ app.use(helmet());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false, limit: "10mb" }));
-app.use(session({
-  secret: "my_secret",
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    secure: auto,
-    httpOnly: true,
-    maxAge: 1000 * 60 * 60 * 24,
-    sameSite: "none",
-  },
-  store: MongoStore.create({ mongoUrl:process.env.MONGO_URL})
-}));
+// app.use(session({
+//   secret: "my_secret",
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: {
+//     secure: auto,
+//     httpOnly: true,
+//     maxAge: 1000 * 60 * 60 * 24,
+//     sameSite: "none",
+//   },
+//   store: MongoStore.create({ mongoUrl:process.env.MONGO_URL})
+// }));
+app.use(
+  cookieSession({
+    name: "__session",
+    keys: ["key1"],
+      maxAge: 24 * 60 * 60 * 100,
+      secure: true,
+      httpOnly: true,
+      sameSite: 'none'
+  })
+);
 
 /* ROUTES */
 app.get("/", (req,res)=>{
