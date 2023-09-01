@@ -54,7 +54,7 @@ export const registerUser = (req,res) => {
   // }else{
   //   console.log(req.session.uesrname);
   // }
-  res.cookie('test', 'test', {secure: true, httpOnly: true, sameSite: "none", maxAge: 1000 * 60 * 60 * 24, domain: "https://thetypist.netlify.app/"});
+  res.cookie('test', 'test', {secure: true, httpOnly: true, sameSite: "none", maxAge: 1000 * 60 * 60 * 24});
   return res.send({mssg: 'api works'});
 }
 
