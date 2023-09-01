@@ -7,7 +7,7 @@ import helmet from "helmet";
 import userRoute from "./routes/userRoute.js";
 import testRoute from "./routes/testRoute.js";
 import cookieParser from "cookie-parser";
-import session, { Store } from "express-session";
+import session, { Store, Cookie } from "express-session";
 import MongoStore from "connect-mongo";
 
 
@@ -31,7 +31,7 @@ app.use(session({
   secret: "my_secret",
   resave: false,
   saveUninitialized: true,
-  cookie: {
+  Cookie: {
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24,
     sameSite: "none",
