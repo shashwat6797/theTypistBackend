@@ -7,6 +7,7 @@ import helmet from "helmet";
 import userRoute from "./routes/userRoute.js";
 import testRoute from "./routes/testRoute.js";
 import cookieParser from "cookie-parser";
+import cookieParser from "cookie-parser";
 import session, { Store, Cookie } from "express-session";
 import MongoStore from "connect-mongo";
 
@@ -32,8 +33,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie:{
-    sameSite: 'none',
-    secure: true
+    sameSite: 'none'
   },
   Cookie: {
     httpOnly: true,
