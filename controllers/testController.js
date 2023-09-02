@@ -26,7 +26,7 @@ export const getResult = async (req, res) => {
 
 export const getAllResult = async (req, res) => {
   const result = await TestResult.find()
-    .sort({ wpm: -1});
+    .sort({ acc: -1});
   // console.log(result);
   res.send(result);
 };
