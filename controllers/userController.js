@@ -33,7 +33,7 @@ export const loginUser = async (req, res) => {
     if (user) {
       userid = username;
       const isMatch = await bcrypt.compare(password, user.password);
-      req.session.username = username;
+      isMatch ? req.session.username = username : null;
       return res.send(isMatch);
     } else {
       res.send("Invalid username");
@@ -44,7 +44,7 @@ export const loginUser = async (req, res) => {
 };
 
 export const userHome = (req, res) => {
-  // console.log('userHome '+req.session.username);
+  console.log('userHome '+req.session.username);
   return res.send(req.session.username);
 };
 
